@@ -1,4 +1,11 @@
-# PASOS A SEGUIR:
+## PROCEDIMIENTO:
+
+---
+
+![imagen](https://headerfiles.com/assets/images/featured/factory.jpg)
+
+---
+
 
 -Primer paso: Creamos una interfaz donde declaramos constantes con 
 cada tipo de embalaje y inicializadas con un texto y declaramos los 2 métodos de los transportes,
