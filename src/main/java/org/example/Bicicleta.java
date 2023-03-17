@@ -25,7 +25,7 @@ public class Bicicleta implements ITransporte {
      */
     public Integer tipoEmbalaje(Float x, Float y, Float z, Float peso) {
         Integer opcionB= null;
-        ;
+
         if (x > 50 && y > 50 && z > 50 && peso > 50) {
             opcionB = 2;
 

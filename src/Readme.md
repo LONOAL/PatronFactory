@@ -19,7 +19,7 @@ coste total y tipo de embalaje.
     Float costeTotal(Integer CP);
     Integer tipoEmbalaje(Float x,Float y,Float z,Float peso);
 ```
--Segundo paso: Creamos una clase por cada transporte, bicicleta y
+-Segundo paso: Creamos una clase por cada transporte, bicicleta, barco y
 camión que implementan los métodos de la interfaz y
 los configura para dependiendo de los valores que reciba devolver
 unos valores o otros.
@@ -66,15 +66,19 @@ public class FactoriaDeTransportes {
 
         public static final int CAMION = 1;
         public static final int BICICLETA = 2;
+        public static final int BARCO = 3;
        
         public static ITransporte getProducto(int type) {
             switch (type) {
                 // tipo camion
                 case CAMION:
                     return new Camion();
-                // tipo
+                // tipo bicicleta
                 case BICICLETA:
                     return new Bicicleta();
+                // tipo barco
+                case BARCO:
+                    return new Barco();
                 // otro tipo
                 default:
                     return null;
@@ -92,26 +96,37 @@ public class App {
     public static void main(String[] args) {
 
 
-                // CAMION
-                transporte = FactoriaDeTransportes.getProducto(FactoriaDeTransportes.CAMION);
-        System.out.println("Camion:"+"El coste del envio es de: "+transporte.costeTotal(54000));
+        //Camion
+        transporte = FactoriaDeTransportes.getProducto(FactoriaDeTransportes.CAMION);
+            System.out.println("Camion:"+"El coste del envio es de: "+transporte.costeTotal(54000));
                 int tipoC= transporte.tipoEmbalaje(120f,120f,120f,120f);
                 if(tipoC == 0)
-                    System.out.println("Camión: "+tipoC+"-->"+ITransporte.Pale);
+                    System.out.println("Camión: "+tipoC+" --> "+ITransporte.Pale);
                 else if(tipoC == 1)
-                    System.out.println("Camión: "+tipoC+"-->"+ITransporte.CajaCarton);
+                    System.out.println("Camión: "+tipoC+" --> "+ITransporte.CajaCarton);
                 else
-                    System.out.println("Camión: "+tipoC+"-->"+ITransporte.CajaMadera);
-                //BICICLETA
-                transporte = FactoriaDeTransportes.getProducto(FactoriaDeTransportes.BICICLETA);
-        System.out.println("Bicileta:"+"El coste del envio es de: "+transporte.costeTotal(20000));
-               int tipoB =transporte.tipoEmbalaje(24f,24f,24f,24f);
-               if(tipoB == 0)
-                   System.out.println("Bicicleta:"+tipoB+"-->"+ITransporte.Pale);
-               else if(tipoB == 1)
-                   System.out.println("Bicicleta: "+tipoB+"-->"+ITransporte.CajaCarton);
-               else
-                   System.out.println("Bicicleta: "+tipoB+"-->"+ITransporte.CajaMadera);
+                    System.out.println("Camión: "+tipoC+" --> "+ITransporte.CajaMadera);
+        //Bicicleta
+        transporte = FactoriaDeTransportes.getProducto(FactoriaDeTransportes.BICICLETA);
+            System.out.println("Bicileta:"+"El coste del envio es de: "+transporte.costeTotal(20000));
+                int tipoB =transporte.tipoEmbalaje(24f,24f,24f,24f);
+                if(tipoB == 0)
+                   System.out.println("Bicicleta: "+tipoB+" --> "+ITransporte.Pale);
+                else if(tipoB == 1)
+                   System.out.println("Bicicleta: "+tipoB+" --> "+ITransporte.CajaCarton);
+                else
+                   System.out.println("Bicicleta: "+tipoB+" --> "+ITransporte.CajaMadera);
+
+        // Barco
+        transporte = FactoriaDeTransportes.getProducto(FactoriaDeTransportes.BARCO);
+            System.out.println("Barco:"+"El coste del envio es de: "+transporte.costeTotal(18000));
+                int tipoBa =transporte.tipoEmbalaje(220f,220f,220f,220f);
+                if(tipoBa == 0)
+                    System.out.println("Barco: "+tipoBa+"-->"+ITransporte.Pale);
+                else if(tipoBa == 1)
+                    System.out.println("Barco: "+tipoBa+"-->"+ITransporte.CajaCarton);
+                else
+                    System.out.println("Barco: "+tipoBa+"-->"+ITransporte.CajaMadera);
             }
         }
 
